@@ -1,0 +1,227 @@
+---
+title: "Riding the Shadow"
+author: "Mitchell Borchers"
+date: "12/19/2020"
+geometry: "left=2cm,right=2cm,top=2cm,bottom=1.5cm"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage{tikz}
+- \usepackage{pgfplots}
+- \usepackage{amsmath}
+- \pgfplotsset{compat=1.17}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+## Introduction
+While mountain biking one clear December evening there was a beautiful sunset. Entranced by the beauty a friend lost focus and rode off the trail. Asked later about the cause of the accident, the culprit was a distracting question. How fast would a person have to climb vertically from the surface of the Earth to always see the Sun just about to set on the horizon while the Earth is rotating?
+
+## Assumptions
+To simplify the problem, a few assumptions will be made.
+
+  *   The point of reference (person) is positioned at the equator  
+  *   The Earth is rotating away from the Sun at a constant rate  
+  *   The Sun is treated like a point light source  
+  *   The point of reference is always rotating at the same speed as the Earth
+
+\begin{figure}
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}}  
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,363);
+
+%Shape: Arc [id:dp5979442796737424] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (142.96,213.96) .. controls (144.24,216.21) and (144.97,218.75) .. (144.97,221.44) -- (126.5,221.44) -- cycle ; \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (142.96,213.96) .. controls (144.24,216.21) and (144.97,218.75) .. (144.97,221.44) ;
+%Straight Lines [id:da10895072412186346] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (387.14,221.44) -- (126.5,221.44) ;
+\draw [shift={(126.5,221.44)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(387.14,221.44)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Shape: Circle [id:dp7494036003123736] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (267.58,221.44) .. controls (267.58,155.41) and (321.11,101.88) .. (387.14,101.88) .. controls (453.17,101.88) and (506.7,155.41) .. (506.7,221.44) .. controls (506.7,287.47) and (453.17,341) .. (387.14,341) .. controls (321.11,341) and (267.58,287.47) .. (267.58,221.44) -- cycle ;
+%Straight Lines [id:da6159860195586249] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 0.84pt off 2.51pt}]  (387.14,101.88) -- (387.14,86) ;
+\draw [shift={(387.14,86)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(387.14,101.88)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da734083825946463] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (126.5,221.44) -- (521.84,15.94) ;
+\draw [shift={(524.5,14.56)}, rotate = 512.53] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+%Straight Lines [id:da8499549568646694] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (387.14,221.44) -- (325.5,118) ;
+\draw [shift={(325.5,118)}, rotate = 239.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(387.14,221.44)}, rotate = 239.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Shape: Arc [id:dp06307158422330672] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (378.5,205.56) .. controls (380.65,204.12) and (383.13,203.21) .. (385.82,203.02) -- (387.14,221.44) -- cycle ; \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (378.5,205.56) .. controls (380.65,204.12) and (383.13,203.21) .. (385.82,203.02) ;
+%Straight Lines [id:da8602948959997141] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (387.14,101.88) -- (387.14,221.44) ;
+\draw [shift={(387.14,221.44)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(387.14,101.88)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Shape: Right Angle [id:dp8283873611803174] 
+\draw   (330.66,127.62) -- (321.05,132.78) -- (315.88,123.16) ;
+%Shape: Right Angle [id:dp8692075461903701] 
+\draw   (387.14,210.8) -- (376.5,210.8) -- (376.5,221.44) ;
+
+% Text Node
+\draw (165,210) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\alpha $};
+% Text Node
+\draw (126.5,236.44) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$Sun$};
+% Text Node
+\draw (250.58,235.44) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$d_{1}$};
+% Text Node
+\draw (401.14,161.66) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e}$};
+% Text Node
+\draw (387.14,235.44) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$Earth$};
+% Text Node
+\draw (402.14,91.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$l$};
+% Text Node
+\draw (377,179) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\alpha $};
+% Text Node
+\draw (341.58,174) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e}$};
+% Text Node
+\draw (401.14,116.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$p_{o}$};
+
+
+\end{tikzpicture}
+\end{center}
+\caption{Diagram of the line of the shadow cast by the Sun.}
+\label{fig:simple}
+\end{figure}
+
+\newpage
+
+## Setup
+If the Sun is just setting on the horizon then a position on the equator \(p_o\) the observation point will require an increase in height to stay just outside the approaching shadow as the Earth rotates, as shown in Figure \ref{fig:simple}. The average distance between the center of the Earth and the center of the Sun is denoted as \(d_1\), the radius of the Earth is denoted as \(r_e\), the height of the ladder is denoted by \(l\)
+and the shadow angle as \(\alpha\), which can be determined using \(r_e\) and \(d_1\).
+
+```{=latex}
+\begin{align*}
+\sin(\alpha) &= \frac{r_e}{d_1} \\
+\alpha &= \sin^{-1}(\frac{r_e}{d_1}) \\
+\alpha &\approx 0
+\end{align*}
+```
+
+The Earth's radius relative to the distance between the Sun and the Earth is quite small. As a result \(\alpha\) is very small, approximately 0. This simplifies the setup diagram. The updated setup is shown in Figure \ref{fig:alpha}.
+
+\begin{figure}
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+
+%uncomment if require: \path (0,353); %set diagram left start at 0, and has height of 353
+
+%Shape: Arc [id:dp6189110146389809] 
+\draw  [draw opacity=0][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (293.53,154.65) .. controls (293.54,154.65) and (293.56,154.65) .. (293.58,154.65) .. controls (303.72,154.65) and (312.38,160.86) .. (315.79,169.61) -- (293.58,177.88) -- cycle ; \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (293.53,154.65) .. controls (293.54,154.65) and (293.56,154.65) .. (293.58,154.65) .. controls (303.72,154.65) and (312.38,160.86) .. (315.79,169.61) ;
+%Shape: Circle [id:dp9427194203411393] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (222.46,177.88) .. controls (222.46,138.6) and (254.3,106.76) .. (293.58,106.76) .. controls (332.86,106.76) and (364.7,138.6) .. (364.7,177.88) .. controls (364.7,217.16) and (332.86,249) .. (293.58,249) .. controls (254.3,249) and (222.46,217.16) .. (222.46,177.88) -- cycle ;
+%Straight Lines [id:da8476482622829371] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (293.58,106.76) -- (293.58,177.88) ;
+\draw [shift={(293.58,177.88)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(293.58,106.76)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da6975926883679724] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (465.5,106.76) -- (147.5,106.76) ;
+\draw [shift={(468.5,106.76)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+%Straight Lines [id:da9008053005401193] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (468.5,106.76) -- (293.58,177.88) ;
+%Shape: Arc [id:dp052299292995587] 
+\draw  [draw opacity=0] (383.85,190.9) .. controls (381.42,207.89) and (374.3,223.37) .. (363.85,235.99) -- (293.58,177.88) -- cycle ; \draw   (383.85,190.9) .. controls (381.42,207.89) and (374.3,223.37) .. (363.85,235.99) ;
+%Straight Lines [id:da5802801373055342] 
+\draw    (363.85,235.99) -- (360.5,239.76) ;
+\draw [shift={(358.5,242)}, rotate = 311.72] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Shape: Right Angle [id:dp1178456535341934] 
+\draw   (305.5,107.88) -- (305.5,118.68) -- (294.7,118.68) ;
+
+% Text Node
+\draw (282.58,142.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e}$};
+% Text Node
+\draw (293.58,260) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$Earth$};
+% Text Node
+\draw (396.58,156.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e} +l$};
+% Text Node
+\draw (313.58,144.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\phi $};
+\end{tikzpicture}
+\end{center}
+\caption{Setup}
+\label{fig:alpha}
+\end{figure}
+
+The equation for the height of the ladder based on the angle \(\phi\) can be derived using the simplified diagram shown in Figure \ref{fig:alpha}. where the the height \(l\) is in \(m\) meters and the angle \(\phi\) is measured in \(rad\).
+
+```{=latex}
+\begin{align}
+\cos(\phi) &= \frac{r_e}{r_e+l}\nonumber \\
+r_e+l &= \frac{r_e}{cos(\phi)}\nonumber \\
+l &= r_e\left(\frac{1}{cos(\phi)}-1\right)\nonumber \\
+l(\phi) &= r_e\left(\frac{1}{cos(\phi)}-1\right)
+\end{align}
+```
+
+In order to find the velocity time needs to be factored into the equation. This can be done using Earth's constant rate of rotation, denoted by \(\omega\) measured in radians per second. The equation for angular velocity can be used to determine what to substitute in for the angle \(\phi\) as shown.
+
+```{=latex}
+\begin{align*}
+\omega &= \frac{v_e}{r_e}
+\end{align*}
+```
+
+Now instead of using the constant \(\phi\), \(\omega\) is changing over time and the length of the ladder \(l\) can be calculated based on time \(t\) where \(t_0\) \(\rightarrow\) \(\phi=0\) and \(t_f\) \(\rightarrow\) \(\phi=\frac{\pi}{2}\). The height equation can be rewritten relative to time as shown and the domain can be changed to \(t\) where \(t_0=0\) and \(t_f=6\) hours.
+
+```{=latex}
+\begin{align}
+l(t)=r_{e}\left(\frac{1}{cos\left(\frac{v_{e}}{r_{e}} t\right)}-1\right)
+\end{align}
+```
+```{r, echo=FALSE}
+t = seq(0, 60*60*6, 1)
+Length = 6378000*((1/cos(460/6378000*t)) - 1)
+
+plot(t, Length, type = 'l', col = 'red', xlab="Time (s)", ylab="Length (meters)")
+legend('top',c("Length(t)"), lty = c(1), col = c("red"), bty = 'n')
+```
+
+Taking the derivative of the position equation gives the velocity equation. The circle on this plot signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s^2}\).
+
+```{=latex}
+\begin{align}
+l'(t)=v_e tan\left(\frac{v_e}{r_e}t\right)sec\left(\frac{v_e}{r_e} t\right)
+\end{align}
+```
+```{r, echo=FALSE}
+t = seq(0, 60*60*6, 1)
+Velocity = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+
+plot(t, Velocity, type = 'l', col = 'cyan', xlab="Time (s)", ylab="Velocity (meters/s)")
+points(18954.04, 11000, col="black")
+legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
+```
+
+Taking the derivative of the velocity equation gives the acceleration equation.
+
+```{=latex}
+\begin{align}
+l''(t)=\frac{v_e^2}{r_e}\left(sin^2\left(\frac{v_e}{r_e}t\right)+1\right)sec^3\left(\frac{v_e}{r_e} t\right)
+\end{align}
+```
+```{r, echo=FALSE}
+t = seq(0, 60*60*6, 1)
+Accelration = 460^(2)/6378000*sin(460/6378000*t)^2*1/(cos(460/6378000*t)^3)
+
+plot(t, Accelration, type = 'l', col = 'green', xlab="Time (s)", ylab="Acceleration (meters/s^2)")
+points(20539.47, 46.2, col="red")
+legend('top',c("Acceleration(t)"), lty = c(1), col = c("green"), bty = 'n')
+```
+
+For reference, the most acceleration a person has ever been subjected to is about 9\(g\)'s or 46.2\(\frac{m}{s^2}\) shown on the acceleration plot as the red circle.
+
+
+
+
+
+
+
+
