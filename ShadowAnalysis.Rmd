@@ -206,6 +206,7 @@ Taking the derivative of the velocity equation gives the acceleration equation.
 l''(t)=\frac{v_e^2}{r_e}\left(sin^2\left(\frac{v_e}{r_e}t\right)+1\right)sec^3\left(\frac{v_e}{r_e} t\right)
 \end{align}
 ```
+
 ```{r, echo=FALSE}
 t = seq(0, 60*60*6, 1)
 Accelration = 460^(2)/6378000*sin(460/6378000*t)^2*1/(cos(460/6378000*t)^3)
@@ -213,24 +214,24 @@ Accelration = 460^(2)/6378000*sin(460/6378000*t)^2*1/(cos(460/6378000*t)^3)
 plot(t, Accelration, type = 'l', col = 'green', xlab="Time (s)", ylab="Acceleration (meters/s^2)")
 points(20539.47, 46.2, col="red")
 legend('top',c("Acceleration(t)"), lty = c(1), col = c("green"), bty = 'n')
+```
 
-
-
+```{r, echo=FALSE}
 # Load the ggplot2 library
 library(ggplot2)
 # ggplot wants a data frame in long format
 # Stack the values
 options(scipen=999)
-values = c(acc)
 t = seq(0, 60*60*6, 1)
 acc = 460^(2)/6378000*sin(460/6378000*t)^2*1/(cos(460/6378000*t)^3)
+values = c(acc)
 # Create a variable that indicates what is being plotted
-function.type = rep(c("Acceleration(t)"), each = length(t), col="red")
+function.type = rep(c("Acceleration(t)"), each = length(t))
 xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
 
 ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line()+ ggtitle("Acceleration Rate Over Time")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red")
+       aes(x = xval, y = values))+ geom_line(color="green")+ ggtitle("Acceleration Rate Over Time")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red", size=2)
 
 ```
 
