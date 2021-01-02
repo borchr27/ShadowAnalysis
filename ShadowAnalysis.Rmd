@@ -19,7 +19,7 @@ library(ggplot2)
 ```
 
 ## Introduction
-While mountain biking one clear December evening there was a beautiful sunset. Entranced by the beauty a friend lost focus and rode off the trail. Asked later about the cause of the accident, the culprit was a distracting question. How fast would a person have to climb vertically from the surface of the Earth to always see the Sun just about to set on the horizon while the Earth is rotating?
+While mountain biking one clear December evening there was a beautiful sunset. Distracted by the setting Sun a friend lost focus and rode off the trail. Asked later about the cause of the accident, the culprit was a distracting question. How fast would a person have to climb vertically from the surface of the Earth to always see the Sun just about to set on the horizon while the Earth is rotating?
 
 ## Assumptions
 To simplify the problem, a few assumptions will be made.
@@ -97,13 +97,11 @@ To simplify the problem, a few assumptions will be made.
 If the Sun is just setting on the horizon then a position on the equator \(p_o\) the observation point will require an increase in height to stay just outside the approaching shadow as the Earth rotates, as shown in Figure \ref{fig:simple}. The average distance between the center of the Earth and the center of the Sun is denoted as \(d_1\), the radius of the Earth is denoted as \(r_e\), the height of the ladder is denoted by \(l\)
 and the shadow angle as \(\alpha\), which can be determined using \(r_e\) and \(d_1\).
 
-```{=latex}
 \begin{align*}
 \sin(\alpha) &= \frac{r_e}{d_1} \\
 \alpha &= \sin^{-1}(\frac{r_e}{d_1}) \\
 \alpha &\approx 0
 \end{align*}
-```
 
 The Earth's radius relative to the distance between the Sun and the Earth is quite small. As a result \(\alpha\) is very small, approximately 0. This simplifies the setup diagram. The updated setup is shown in Figure \ref{fig:alpha}.
 
@@ -149,36 +147,33 @@ The Earth's radius relative to the distance between the Sun and the Earth is qui
 \label{fig:alpha}
 \end{figure}
 
-The equation for the height of the ladder based on the angle \(\phi\) can be derived using the simplified diagram shown in Figure \ref{fig:alpha}. where the the height \(l\) is in \(m\) meters and the angle \(\phi\) is measured in \(rad\).
+The equation for the height of the ladder based on the angle \(\phi\) can be derived using the simplified diagram shown in Figure \ref{fig:alpha}. where the the height \(l\) is in \(m\) meters and the angle \(\phi\) is measured in \(radians\).
 
-```{=latex}
 \begin{align}
+\label{eq:phi}
 \cos(\phi) &= \frac{r_e}{r_e+l}\nonumber \\
 r_e+l &= \frac{r_e}{cos(\phi)}\nonumber \\
 l &= r_e\left(\frac{1}{cos(\phi)}-1\right)\nonumber \\
 l(\phi) &= r_e\left(\frac{1}{cos(\phi)}-1\right)
 \end{align}
-```
 
-In order to find the velocity time needs to be factored into the equation. This can be done using Earth's constant rate of rotation, denoted by \(\omega\) measured in radians per second. The equation for angular velocity can be used to determine what to substitute in for the angle \(\phi\) as shown.
+In order to find the velocity, time needs to be factored into the equation. This can be done using Earth's constant rate of rotation, denoted by \(\omega\) measured in \(radians\) per second. The equation for angular velocity can be used to determine what to substitute in for the angle \(\phi\) as shown.
 
-```{=latex}
-\begin{align*}
-\omega &= \frac{v_e}{r_e}
-\end{align*}
-```
+\begin{equation}
+\label{eq:omega}
+\omega = \frac{v_e}{r_e}
+\end{equation}
 
 Now instead of using the constant \(\phi\), \(\omega\) is changing over time and the length of the ladder \(l\) can be calculated based on time \(t\) where \(t_0\) \(\rightarrow\) \(\phi=0\) and \(t_f\) \(\rightarrow\) \(\phi=\frac{\pi}{2}\). The height equation can be rewritten relative to time as shown and the domain can be changed to \(t\) where \(t_0=0\) and \(t_f=6\) hours.
 
-
 ## Analysis
-The length of the ladder at the point shown on the reference point of the Length plot is equivalent to the height of the International Space Stations orbit or 254 miles (408773 m). 
+Using Equation \ref{eq:phi}, Equation \ref{eq:omega} can be substituted in for \(\phi\). Giving Equation \ref{eq:len}. The length of the ladder at the point shown on the reference point of the Length plot is equivalent to the distance of the International Space Station from the surface of the Earth or 254 \(miles\) (408,773 \(m\)). 
 
-```{=latex}
-\begin{align}
+\begin{equation}
+\label{eq:len}
 l(t)=r_{e}\left(\frac{1}{cos\left(\frac{v_{e}}{r_{e}} t\right)}-1\right)
-\end{align}
-```
+\end{equation}
+
 ```{r, eval=FALSE, echo=FALSE}
 t = seq(0, 60*60*6, 1)
 Length = 6378000*((1/cos(460/6378000*t)) - 1)
@@ -198,17 +193,17 @@ xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
 
 ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line(color="violet")+ ggtitle("Ladder Length Plot")+ xlab("Time(s)")+ ylab("Length(m)")+ geom_point(shape=1, aes(x=4836.77, y=408773), colour="black", size=2)
-
+       aes(x = xval, y = values))+ geom_line(color="violet")+ ggtitle("Length Plot")+ xlab("Time(s)")+ ylab("Length(m)")+ geom_point(shape=1, aes(x=4836.77, y=408773), colour="black", size=2)
 ```
+
 \newpage
 Taking the derivative of the position equation gives the velocity equation. The circle on this plot signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s^2}\).
 
-```{=latex}
-\begin{align}
+\begin{equation}
+\label{eq:vel}
 l'(t)=v_e tan\left(\frac{v_e}{r_e}t\right)sec\left(\frac{v_e}{r_e} t\right)
-\end{align}
-```
+\end{equation}
+
 ```{r, eval=FALSE, echo=FALSE}
 #t = seq(0, 60*60*6, 1)
 Velocity = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
@@ -219,26 +214,25 @@ legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
 ```{r, echo=FALSE}
 options(scipen=999)
 t = seq(0, 60*60*6, 1)
-acc = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
-values = c(acc)
+vel = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+values = c(vel)
 # Create a variable that indicates what is being plotted
 function.type = rep(c("Velocity(t)"), each = length(t))
 xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
 
 ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line(color="cyan")+ ggtitle("Ladder Instantaneous Velocity Plot")+ xlab("Time(s)")+ ylab("Velocity(m/s)")+ geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
+       aes(x = xval, y = values))+ geom_line(color="cyan")+ ggtitle("Instantaneous Velocity Plot")+ xlab("Time(s)")+ ylab("Velocity(m/s)")+ geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
 
 ```
 
 \newpage
 Taking the derivative of the velocity equation gives the acceleration equation.
 
-```{=latex}
-\begin{align}
+\begin{equation}
+\label{eq:acc}
 l''(t)=\frac{v_e^2}{r_e}\left(sin^2\left(\frac{v_e}{r_e}t\right)+1\right)sec^3\left(\frac{v_e}{r_e} t\right)
-\end{align}
-```
+\end{equation}
 
 ```{r, eval=FALSE, echo=FALSE}
 t = seq(0, 60*60*6, 1)
@@ -262,13 +256,13 @@ xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
 
 ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line(color="green")+ ggtitle("Ladder Instantaneous Acceleration Plot")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red", size=2)
+       aes(x = xval, y = values))+ geom_line(color="green")+ ggtitle("Instantaneous Acceleration Plot")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red", size=2)
 ```
 
 For reference, the most acceleration a person has ever been subjected to is about 9\(g\)'s or 46.2\(\frac{m}{s^2}\) shown on the acceleration plot as the red circle.
 
 ## Conclusion
-
+Ultimately, the question "How fast would a person have to climb a ladder to constantly see the Sun just about to set" can be answered using a given time (\(t\)) in seconds after which the Sun has set and the Equation \ref{eq:vel}. At an hour after sunset a person would have to be on top of a ladder 221,193 \(m\)'s high and climbing at 126.4 \(\frac{m}{s}\). Which is about 137 \(miles\) and 280 \(mph\).
 
 
 
