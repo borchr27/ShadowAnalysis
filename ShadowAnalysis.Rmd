@@ -191,12 +191,27 @@ l'(t)=v_e tan\left(\frac{v_e}{r_e}t\right)sec\left(\frac{v_e}{r_e} t\right)
 \end{align}
 ```
 ```{r, echo=FALSE}
-t = seq(0, 60*60*6, 1)
-Velocity = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+#t = seq(0, 60*60*6, 1)
+#Velocity = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+#plot(t, Velocity, type = 'l', col = 'cyan', xlab="Time (s)", ylab="Velocity (meters/s)")
+#points(18954.04, 11000, col="black")
+#legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
 
-plot(t, Velocity, type = 'l', col = 'cyan', xlab="Time (s)", ylab="Velocity (meters/s)")
-points(18954.04, 11000, col="black")
-legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
+
+
+
+options(scipen=999)
+t = seq(0, 60*60*6, 1)
+acc = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+values = c(acc)
+# Create a variable that indicates what is being plotted
+function.type = rep(c("Velocity(t)"), each = length(t))
+xval = c(t)
+plot.dat = data.frame(values, xval, function.type)
+
+ggplot(plot.dat, 
+       aes(x = xval, y = values))+ geom_line(color="cyan")+ ggtitle("Velocity Plot")+ xlab("Time(s)")+ ylab("Velocity(m/s)")+ geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
+
 ```
 
 Taking the derivative of the velocity equation gives the acceleration equation.
@@ -217,8 +232,6 @@ legend('top',c("Acceleration(t)"), lty = c(1), col = c("green"), bty = 'n')
 ```
 
 ```{r, echo=FALSE}
-# Load the ggplot2 library
-library(ggplot2)
 # ggplot wants a data frame in long format
 # Stack the values
 options(scipen=999)
