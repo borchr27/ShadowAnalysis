@@ -170,12 +170,16 @@ In order to find the velocity time needs to be factored into the equation. This 
 
 Now instead of using the constant \(\phi\), \(\omega\) is changing over time and the length of the ladder \(l\) can be calculated based on time \(t\) where \(t_0\) \(\rightarrow\) \(\phi=0\) and \(t_f\) \(\rightarrow\) \(\phi=\frac{\pi}{2}\). The height equation can be rewritten relative to time as shown and the domain can be changed to \(t\) where \(t_0=0\) and \(t_f=6\) hours.
 
+
+## Analysis
+The length of the ladder at the point shown on the reference point of the Length plot is equivalent to the height of the International Space Stations orbit or 254 miles (408773 m). 
+
 ```{=latex}
 \begin{align}
 l(t)=r_{e}\left(\frac{1}{cos\left(\frac{v_{e}}{r_{e}} t\right)}-1\right)
 \end{align}
 ```
-```{r, echo=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 t = seq(0, 60*60*6, 1)
 Length = 6378000*((1/cos(460/6378000*t)) - 1)
 
@@ -183,6 +187,21 @@ plot(t, Length, type = 'l', col = 'red', xlab="Time (s)", ylab="Length (meters)"
 legend('top',c("Length(t)"), lty = c(1), col = c("red"), bty = 'n')
 ```
 
+```{r, echo=FALSE}
+options(scipen=999)
+t = seq(0, 60*60*6, 1)
+len = 6378000*((1/cos(460/6378000*t)) - 1)
+values = c(len)
+# Create a variable that indicates what is being plotted
+function.type = rep(c("Length(t)"), each = length(t))
+xval = c(t)
+plot.dat = data.frame(values, xval, function.type)
+
+ggplot(plot.dat, 
+       aes(x = xval, y = values))+ geom_line(color="violet")+ ggtitle("Ladder Length Plot")+ xlab("Time(s)")+ ylab("Length(m)")+ geom_point(shape=1, aes(x=4836.77, y=408773), colour="black", size=2)
+
+```
+\newpage
 Taking the derivative of the position equation gives the velocity equation. The circle on this plot signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s^2}\).
 
 ```{=latex}
@@ -190,16 +209,14 @@ Taking the derivative of the position equation gives the velocity equation. The 
 l'(t)=v_e tan\left(\frac{v_e}{r_e}t\right)sec\left(\frac{v_e}{r_e} t\right)
 \end{align}
 ```
-```{r, echo=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 #t = seq(0, 60*60*6, 1)
-#Velocity = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
-#plot(t, Velocity, type = 'l', col = 'cyan', xlab="Time (s)", ylab="Velocity (meters/s)")
-#points(18954.04, 11000, col="black")
-#legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
-
-
-
-
+Velocity = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+plot(t, Velocity, type = 'l', col = 'cyan', xlab="Time (s)", ylab="Velocity (meters/s)")
+points(18954.04, 11000, col="black")
+legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
+```
+```{r, echo=FALSE}
 options(scipen=999)
 t = seq(0, 60*60*6, 1)
 acc = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
@@ -210,10 +227,11 @@ xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
 
 ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line(color="cyan")+ ggtitle("Velocity Plot")+ xlab("Time(s)")+ ylab("Velocity(m/s)")+ geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
+       aes(x = xval, y = values))+ geom_line(color="cyan")+ ggtitle("Ladder Instantaneous Velocity Plot")+ xlab("Time(s)")+ ylab("Velocity(m/s)")+ geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
 
 ```
 
+\newpage
 Taking the derivative of the velocity equation gives the acceleration equation.
 
 ```{=latex}
@@ -222,7 +240,7 @@ l''(t)=\frac{v_e^2}{r_e}\left(sin^2\left(\frac{v_e}{r_e}t\right)+1\right)sec^3\l
 \end{align}
 ```
 
-```{r, echo=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 t = seq(0, 60*60*6, 1)
 Accelration = 460^(2)/6378000*sin(460/6378000*t)^2*1/(cos(460/6378000*t)^3)
 
@@ -234,7 +252,7 @@ legend('top',c("Acceleration(t)"), lty = c(1), col = c("green"), bty = 'n')
 ```{r, echo=FALSE}
 # ggplot wants a data frame in long format
 # Stack the values
-options(scipen=999)
+options(scipen=999) #dont use scientific notation
 t = seq(0, 60*60*6, 1)
 acc = 460^(2)/6378000*sin(460/6378000*t)^2*1/(cos(460/6378000*t)^3)
 values = c(acc)
@@ -244,12 +262,12 @@ xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
 
 ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line(color="green")+ ggtitle("Acceleration Rate Over Time")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red", size=2)
-
+       aes(x = xval, y = values))+ geom_line(color="green")+ ggtitle("Ladder Instantaneous Acceleration Plot")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red", size=2)
 ```
 
 For reference, the most acceleration a person has ever been subjected to is about 9\(g\)'s or 46.2\(\frac{m}{s^2}\) shown on the acceleration plot as the red circle.
 
+## Conclusion
 
 
 
