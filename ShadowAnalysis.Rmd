@@ -167,7 +167,13 @@ In order to find the velocity, time needs to be factored into the equation. This
 Now instead of using the constant \(\phi\), \(\omega\) is changing over time and the length of the ladder \(l\) can be calculated based on time \(t\) where \(t_0\) \(\rightarrow\) \(\phi=0\) and \(t_f\) \(\rightarrow\) \(\phi=\frac{\pi}{2}\). The height equation can be rewritten relative to time as shown and the domain can be changed to \(t\) where \(t_0=0\) and \(t_f=6\) hours.
 
 ## Analysis
-Using Equation \ref{eq:phi}, Equation \ref{eq:omega} can be substituted in for \(\phi\). Giving Equation \ref{eq:len}. The length of the ladder at the point shown on the reference point of the Length Plot is equivalent to the distance of the International Space Station from the surface of the Earth or 254 \(miles\) (408,773 \(m\)). 
+Using Equation \ref{eq:phi}, Equation \ref{eq:omega} can be substituted in for \(\phi\) which must be replaced with a value that is unitless. A quick unit check on Equation \ref{eq:omega} confirms that the value is unitless and can be substituted.
+
+\begin{equation}
+\frac{v_e}{r_e}t = \frac{m}{s} \frac{1}{m} s
+\end{equation}
+
+Giving Equation \ref{eq:len}. The length of the ladder at the point shown on the reference point of the Length Plot is equivalent to the distance of the International Space Station from the surface of the Earth or 254 \(miles\) (408,773 \(m\)). 
 
 \begin{equation}
 \label{eq:len}
