@@ -203,7 +203,7 @@ ggplot(plot.dat,
 ```
 
 \newpage
-Taking the derivative of the position equation gives the velocity equation. The circle on this plot signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s^2}\).
+Taking the derivative of the position equation gives the velocity equation. The circle on this plot signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s}\).
 
 \begin{equation}
 \label{eq:vel}
