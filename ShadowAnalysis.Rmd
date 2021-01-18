@@ -19,7 +19,7 @@ library(ggplot2)
 ```
 
 ## Introduction
-While mountain biking one clear December evening there was a beautiful sunset. Distracted by the setting Sun a friend lost focus and rode off the trail. Asked later about the cause of the accident, the culprit was a distracting question. How fast would a person have to climb vertically from the surface of the Earth to always see the Sun just about to set on the horizon while the Earth is rotating?
+While mountain biking one clear December evening there was a beautiful sunset. Distracted by the setting Sun a friend lost focus and rode off the trail. Asked later about the cause of the accident, the culprit was a distracting question. How fast would a person have to climb (a ladder) vertically from the surface of the Earth to always see the Sun just about to set on the horizon while the Earth is rotating?
 
 ## Assumptions
 To simplify the problem, a few assumptions will be made.
@@ -94,7 +94,7 @@ To simplify the problem, a few assumptions will be made.
 \newpage
 
 ## Setup
-If the Sun is just setting on the horizon then a position on the equator \(p_o\) the observation point will require an increase in height to stay just outside the approaching shadow as the Earth rotates, as shown in Figure \ref{fig:simple}. The average distance between the center of the Earth and the center of the Sun is denoted as \(d_1\), the radius of the Earth is denoted as \(r_e\), the height of the ladder is denoted by \(l\)
+If the Sun is just setting on the horizon then a position on the equator \(p_o\) the observation point will require an increase in height to stay just outside the approaching shadow as the Earth rotates, as shown in Figure \ref{fig:simple}. The average distance between the center of the Earth and the center of the Sun is denoted as \(d_1\), the radius of the Earth is denoted as \(r_e\), the height of the theoretical ladder (point of reference altitude) is denoted by \(l\)
 and the shadow angle as \(\alpha\), which can be determined using \(r_e\) and \(d_1\).
 
 \begin{align*}
@@ -113,34 +113,37 @@ The Earth's radius relative to the distance between the Sun and the Earth is qui
 %uncomment if require: \path (0,353); %set diagram left start at 0, and has height of 353
 
 %Shape: Arc [id:dp6189110146389809] 
-\draw  [draw opacity=0][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (293.53,154.65) .. controls (293.54,154.65) and (293.56,154.65) .. (293.58,154.65) .. controls (303.72,154.65) and (312.38,160.86) .. (315.79,169.61) -- (293.58,177.88) -- cycle ; \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (293.53,154.65) .. controls (293.54,154.65) and (293.56,154.65) .. (293.58,154.65) .. controls (303.72,154.65) and (312.38,160.86) .. (315.79,169.61) ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (315.53,82.65) .. controls (315.54,82.65) and (315.56,82.65) .. (315.58,82.65) .. controls (325.72,82.65) and (334.38,88.86) .. (337.79,97.61) -- (315.58,105.88) -- cycle ; \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (315.53,82.65) .. controls (315.54,82.65) and (315.56,82.65) .. (315.58,82.65) .. controls (325.72,82.65) and (334.38,88.86) .. (337.79,97.61) ;
 %Shape: Circle [id:dp9427194203411393] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (222.46,177.88) .. controls (222.46,138.6) and (254.3,106.76) .. (293.58,106.76) .. controls (332.86,106.76) and (364.7,138.6) .. (364.7,177.88) .. controls (364.7,217.16) and (332.86,249) .. (293.58,249) .. controls (254.3,249) and (222.46,217.16) .. (222.46,177.88) -- cycle ;
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (244.46,105.88) .. controls (244.46,66.6) and (276.3,34.76) .. (315.58,34.76) .. controls (354.86,34.76) and (386.7,66.6) .. (386.7,105.88) .. controls (386.7,145.16) and (354.86,177) .. (315.58,177) .. controls (276.3,177) and (244.46,145.16) .. (244.46,105.88) -- cycle ;
 %Straight Lines [id:da8476482622829371] 
-\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (293.58,106.76) -- (293.58,177.88) ;
-\draw [shift={(293.58,177.88)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
-\draw [shift={(293.58,106.76)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (315.58,34.76) -- (315.58,105.88) ;
+\draw [shift={(315.58,105.88)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(315.58,34.76)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
 %Straight Lines [id:da6975926883679724] 
-\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (465.5,106.76) -- (147.5,106.76) ;
-\draw [shift={(468.5,106.76)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (487.5,34.76) -- (169.5,34.76) ;
+\draw [shift={(490.5,34.76)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
 %Straight Lines [id:da9008053005401193] 
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (468.5,106.76) -- (293.58,177.88) ;
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (490.5,34.76) -- (315.58,105.88) ;
 %Shape: Arc [id:dp052299292995587] 
-\draw  [draw opacity=0] (383.85,190.9) .. controls (381.42,207.89) and (374.3,223.37) .. (363.85,235.99) -- (293.58,177.88) -- cycle ; \draw   (383.85,190.9) .. controls (381.42,207.89) and (374.3,223.37) .. (363.85,235.99) ;
+\draw  [draw opacity=0] (405.85,118.9) .. controls (403.42,135.89) and (396.3,151.37) .. (385.85,163.99) -- (315.58,105.88) -- cycle ; \draw   (405.85,118.9) .. controls (403.42,135.89) and (396.3,151.37) .. (385.85,163.99) ;
 %Straight Lines [id:da5802801373055342] 
-\draw    (363.85,235.99) -- (360.5,239.76) ;
-\draw [shift={(358.5,242)}, rotate = 311.72] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (385.85,163.99) -- (382.5,167.76) ;
+\draw [shift={(380.5,170)}, rotate = 311.72] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
 %Shape: Right Angle [id:dp1178456535341934] 
-\draw   (305.5,107.88) -- (305.5,118.68) -- (294.7,118.68) ;
+\draw   (327.5,35.88) -- (327.5,46.68) -- (316.7,46.68) ;
 
 % Text Node
-\draw (282.58,142.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e}$};
+\draw (304.58,70.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e}$};
 % Text Node
-\draw (293.58,260) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$Earth$};
+\draw (315.58,188) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$Earth$};
 % Text Node
-\draw (396.58,156.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e} +l$};
+\draw (418.58,84.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$r_{e} +l$};
 % Text Node
-\draw (313.58,144.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\phi $};
+\draw (335.58,72.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\phi $};
+% Text Node
+\draw (412.58,146.88) node  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\omega $};
+
 \end{tikzpicture}
 \end{center}
 \caption{Setup}
@@ -164,7 +167,7 @@ In order to find the velocity, time needs to be factored into the equation. This
 \omega = \frac{v_e}{r_e}
 \end{equation}
 
-Now instead of using the constant \(\phi\), \(\omega\) is changing over time and the length of the ladder \(l\) can be calculated based on time \(t\) where \(t_0\) \(\rightarrow\) \(\phi=0\) and \(t_f\) \(\rightarrow\) \(\phi=\frac{\pi}{2}\). The height equation can be rewritten relative to time as shown and the domain can be changed to \(t\) where \(t_0=0\) and \(t_f=6\) hours.
+Now instead of using the angle \(\phi\), \(\omega\) is changing over time and the length of the ladder \(l\) can be calculated based on time \(t\) where \(t_0\) \(\rightarrow\) \(\phi=0\) and \(t_f\) \(\rightarrow\) \(\phi=\frac{\pi}{2}\). The height equation can be rewritten relative to time as shown and the domain can be changed to \(t\), measured in seconds, where \(t_0=0\) and \(t_f=6\) hours.
 
 ## Analysis
 Using Equation \ref{eq:phi}, Equation \ref{eq:omega} can be substituted in for \(\phi\) which must be replaced with a value that is unitless. A quick unit check on Equation \ref{eq:omega} confirms that the value is unitless and can be substituted.
@@ -173,7 +176,7 @@ Using Equation \ref{eq:phi}, Equation \ref{eq:omega} can be substituted in for \
 \frac{v_e}{r_e}t = \frac{m}{s} \frac{1}{m} s
 \end{equation}
 
-Giving Equation \ref{eq:len}. The length of the ladder at the point shown on the reference point of the Length Plot is equivalent to the distance of the International Space Station from the surface of the Earth or 254 \(miles\) (408,773 \(m\)). 
+Given Equation \ref{eq:len}. the length of the ladder at any point in time from 0 to 6 hours after Sunset can be plotted. A reference point is plotted to add context. The reference point shows the distance of the International Space Station from the surface of the Earth, which is approximately 254 \(miles\) (408,773 \(m\)). 
 
 \begin{equation}
 \label{eq:len}
@@ -203,7 +206,7 @@ ggplot(plot.dat,
 ```
 
 \newpage
-Taking the derivative of the position equation gives the velocity equation. The circle on this plot signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s}\).
+Taking the derivative of the position function gives the velocity equation (Equation \ref{eq:vel}). Plotting the velocity function yields the graph below. A reference point is included to add context. The reference point signifies the escape velocity for a Falcon 9 rocket launch, roughly 11,000\(\frac{m}{s}\).
 
 \begin{equation}
 \label{eq:vel}
@@ -219,22 +222,50 @@ legend('top',c("Velocity(t)"), lty = c(1), col = c("cyan"), bty = 'n')
 ```
 
 ```{r, echo=FALSE}
-options(scipen=999)
-t = seq(0, 60*60*6, 1)
+options(scipen=999) # Setup
+t = seq(0, 60*60*6, 1) # Domain
 vel = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
 values = c(vel)
 # Create a variable that indicates what is being plotted
 function.type = rep(c("Velocity(t)"), each = length(t))
 xval = c(t)
 plot.dat = data.frame(values, xval, function.type)
+ggplot(plot.dat, aes(x = xval, y = values))+
+  geom_line(color="cyan")+
+  ggtitle("Instantaneous Velocity Plot")+
+  xlab("Time(s)")+ ylab("Velocity(m/s)")+
+  geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
+```
 
-ggplot(plot.dat, 
-       aes(x = xval, y = values))+ geom_line(color="cyan")+ ggtitle("Instantaneous Velocity Plot")+ xlab("Time(s)")+ ylab("Velocity(m/s)")+ geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
+```{r, eval=FALSE}
+# Code for plotting
+options(scipen=999) # Setup
+t = seq(0, 60*60*6, 1) # Domain
+vel = 460*tan(460/6378000*t)*1/cos(460/6378000*t)
+values = c(vel)
+# Create a variable that indicates what is being plotted
+function.type = rep(c("Velocity(t)"), each = length(t))
+xval = c(t)
+plot.dat = data.frame(values, xval, function.type)
+ggplot(plot.dat, aes(x = xval, y = values))+
+  geom_line(color="cyan")+
+  ggtitle("Instantaneous Velocity Plot")+
+  xlab("Time(s)")+ ylab("Velocity(m/s)")+
+  geom_point(shape=1, aes(x=18954.04, y=11000), colour="black", size=2)
+```
 
+```{r, eval=FALSE}
+# Code for solving equation
+library(Ryacas)
+# Find reference point example time for plot (finding root of equation)
+t <- sym("t")
+vel <- function(t) {460*tan(460/6378000*t)*1/cos(460/6378000*t)-11000}
+vel0 <- vel(20500)
+try(uniroot(vel, c(10000, 20500)))
 ```
 
 \newpage
-Taking the derivative of the velocity equation gives the acceleration equation.
+Taking the derivative of the velocity equation gives the acceleration equation. Plotting yields the graph below. A reference point is included to add context. The red reference point signifies the most acceleration a person has ever been subjected to, or about 9\(g\)'s (46.2\(\frac{m}{s^2}\)).
 
 \begin{equation}
 \label{eq:acc}
@@ -266,13 +297,7 @@ ggplot(plot.dat,
        aes(x = xval, y = values))+ geom_line(color="green")+ ggtitle("Instantaneous Acceleration Plot")+ xlab("Time(s)")+ ylab("Acceleration(m/s^2)")+ geom_point(shape=1, aes(x=20539.47, y=46.2), colour="red", size=2)
 ```
 
-For reference, the most acceleration a person has ever been subjected to is about 9\(g\)'s or 46.2\(\frac{m}{s^2}\) shown on the acceleration plot as the red circle.
-
 ## Conclusion
 Ultimately, the question "How fast would a person have to climb a ladder to constantly see the Sun just about to set" can be answered using a given time (\(t\)) in seconds after which the Sun has set and Equation \ref{eq:vel}. At an hour after sunset a person would have to be on top of a ladder 221,193 \(m\)'s high and climbing at 126.4 \(\frac{m}{s}\). Which is about 137 \(miles\) and 280 \(mph\).
-
-
-
-
 
 
